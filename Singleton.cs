@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Singleton  {
-    private static volatile MessageManager instance = null;
+public abstract class Singleton<T> where T : class,new() {
+    private static volatile T instance = null;
     private static readonly object syncLock = new object();
-    public static MessageManager Instance
+    public static T Instance
     {
         get
         {
@@ -15,7 +15,7 @@ public abstract class Singleton  {
                 {
                     if (instance == null)
                     {
-                        instance = new MessageManager();
+                        instance = new T();
                     }
                 }
             }

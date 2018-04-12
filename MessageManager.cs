@@ -7,7 +7,7 @@ public delegate void CallBack();
 public delegate void CallBack<T>(T arg0);
 public delegate void CallBack<T,U>(T arg0,U arg1);
 public delegate void CallBack<T,U,V>(T arg0,U arg1,V arg2);
-public class MessageManager :Singleton {
+public class MessageManager :Singleton<MessageManager> {
     private Dictionary<string, Delegate> messageDic = new Dictionary<string, Delegate>();
 
     #region 添加监听者
